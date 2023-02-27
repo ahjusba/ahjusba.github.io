@@ -1,6 +1,6 @@
 const TicTacToe = () => {
   return(
-    <h1>Tic-tac-toe</h1>
+    <h1 id="content">Tic-tac-toe</h1>
   )
 }
 

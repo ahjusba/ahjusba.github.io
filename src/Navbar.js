@@ -4,7 +4,11 @@ const Navbar = () => {
   return(
     <nav className="nav">
       <Link to="/" className="site-title">
-        humble-web-projects
+      <p id="const">const</p>
+      <p id="var"> humble-web-projects</p>
+      =
+      <p id="paranthesis">()</p>
+      <p>{'=>'}</p>
       </Link>
       <ul>
         <CustomLink to="/tic-tac-toe">tic-tac-toe</CustomLink>

@@ -1,4 +1,5 @@
 import Navbar from "./Navbar"
+import Footer from "./Footer"
 import Home from "./pages/Home"
 import Circlemania from "./pages/Circlemania"
 import TicTacToe from "./pages/TicTacToe"
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/circlemania" element={<Circlemania />} />
         </Routes>
       </div>
+      <Footer />
     </>     
   )
 }

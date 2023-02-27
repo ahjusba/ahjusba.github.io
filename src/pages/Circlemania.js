@@ -1,6 +1,6 @@
 const Circlemania = () => {
   return(
-    <h1>Circlemania</h1>
+    <h1 id="content">Circlemania</h1>
   )
 }
 
