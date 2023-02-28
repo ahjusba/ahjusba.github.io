@@ -1,0 +1,56 @@
+button.square {
+  background-color: rgb(64, 64, 64);
+  border: 3px solid;
+  vertical-align: top;
+  border-color: #ffd700;
+  border-radius: 3px;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  width: 5rem;
+  height: 5rem;
+  margin: 0.3rem 0 0 0.3rem;
+
+}
+
+.board {
+  padding: 25px;
+}
+
+.board-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.square {
+  color: white;
+}
+
+.status {
+  padding: 15px;
+}
+
+button.square:hover {
+  background-color: grey;
+}
+
+button.undo {
+  height: 2rem;
+  width: 5rem;
+}
+
+.undo {
+  font: inherit;
+  font-size: 1rem;
+  margin: 1rem 0 1rem 0;
+  background-color: #3d3d3d;
+  color: #c586c0;
+  border: 2px solid;
+  border-color: #c586c0;
+}
+
+.undo:hover {
+  background-color: #c586c0;
+  color: #573b54;
+}

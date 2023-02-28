@@ -2,19 +2,21 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
 const Navbar = () => {
   return(
-    <nav className="nav">
-      <Link to="/" className="site-title">
-      <p id="const">const</p>
-      <p id="var"> humble-web-projects</p>
-      =
-      <p id="paranthesis">()</p>
-      <p>{'=>'}</p>
-      </Link>
-      <ul>
-        <CustomLink to="/tic-tac-toe">tic-tac-toe</CustomLink>
-        <CustomLink to="/circlemania">circlemania</CustomLink>
-      </ul>
-    </nav>
+    <header>
+      <nav className="nav">
+        <Link to="/" className="site-title">
+          <p id="const">const</p><p id="var"> humble-web-projects</p>
+          =
+          <p id="paranthesis">()</p>
+          <p>{'=>'}</p>
+        </Link>
+        <ul>
+          <CustomLink to="/tic-tac-toe">tic-tac-toe</CustomLink>
+          <CustomLink to="/circlemania">circlemania</CustomLink>
+        </ul>
+      </nav>
+    </header>
+    
   )
 }
 
