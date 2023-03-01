@@ -1,0 +1,89 @@
+.geoAPI {
+  text-align: left;
+}
+
+.geoAPI input {
+  
+  width: 300px;
+  height: 50px;
+  background-color: rgb(46, 46, 46);
+  border: white solid 3px;
+  color: white;
+  text-align: left;
+  padding: 0 0 0 5px;
+  font-size: 2rem;
+  margin: 10px 0 10px 0;
+}
+
+.listedCountry {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 400px; */
+}
+
+.showButton {
+  width: 50px;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 1rem;
+  background-color: #3d3d3d;
+  color: #569cd6;
+  border: 2px solid;
+  border-color: #569cd6;  
+}
+
+.showButton:hover {
+  background-color: #569cd6;
+  color: #573b54;
+}
+
+.geoAPI ul {
+  text-align: left;
+  list-style: none;
+  list-style-position: inside;
+}
+
+.country {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather {
+  display: flex;
+  /* align-items: center; */
+}
+
+.flag {
+  text-align: right;
+  float: right;  
+}
+
+.geoAPI img {
+  border-radius: 10px;
+}
+
+.weatherIcon {
+  margin: 10px;
+  padding: 0;
+}
+
+/* .geoAPI {
+  padding: 5px 0 0 0;
+} */
+
+.geoAPI ul {
+  padding: 5px 0 0 0;
+}
+
+.geoAPI li {
+  padding: 0 5px 5px 0
+}
+
+.geoAPI h2 {
+  padding: 10px 0 5px 0;
+}
+
+.geoAPI h1 {
+  padding: 0px 0 10px 0;
+  margin: 0;
+}

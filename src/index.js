@@ -4,6 +4,7 @@ import App from './App'
 import './styles.css'
 import './pages/TicTacToe/TicTacToe.css'
 import './pages/Circlemania/Circlemania.css'
+import './pages/GeoAPI/GeoAPI.css'
 import { BrowserRouter } from "react-router-dom"
  
 const root = ReactDOM.createRoot(document.getElementById('root'))

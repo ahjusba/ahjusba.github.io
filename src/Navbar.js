@@ -11,8 +11,9 @@ const Navbar = () => {
           <p>{'=>'}</p>
         </Link>
         <ul>
-          <CustomLink to="/tic-tac-toe">tic-tac-toe</CustomLink>
           <CustomLink to="/circlemania">circlemania</CustomLink>
+          <CustomLink to="/geoAPI">geoAPI</CustomLink>
+          <CustomLink to="/tic-tac-toe">tic-tac-toe</CustomLink>
         </ul>
       </nav>
     </header>
