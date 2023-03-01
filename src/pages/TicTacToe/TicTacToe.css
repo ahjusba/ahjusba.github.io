@@ -45,12 +45,12 @@ button.undo {
   font-size: 1rem;
   margin: 1rem 0 1rem 0;
   background-color: #3d3d3d;
-  color: #c586c0;
+  color: #569cd6;
   border: 2px solid;
-  border-color: #c586c0;
+  border-color: #569cd6;
 }
 
 .undo:hover {
-  background-color: #c586c0;
+  background-color: #569cd6;
   color: #573b54;
 }
