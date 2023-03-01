@@ -1,0 +1,19 @@
+#game-canvas {
+	border: 6px dashed #e9e9e9;
+	background-color: rgba(26, 26, 26, 0.6);
+}
+
+.circlemania {
+  padding: 10px;
+  text-align: left;
+}
+
+.circlemania h1 {
+  padding: 0 10px 10px 0;
+}
+
+
+.circlemania p {
+  padding: 10px 10px 10px 0;
+  text-align: left;
+}

@@ -1,7 +1,7 @@
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import Home from "./pages/Home"
-import Circlemania from "./pages/Circlemania"
+import Circlemania from "./pages//Circlemania/Circlemania"
 import TicTacToe from "./pages/TicTacToe/TicTacToe"
 import { Route, Routes } from "react-router-dom"
 
