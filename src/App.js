@@ -12,21 +12,30 @@ const App = () => {
       <Navbar />
 
       <main>
-        <div className="sidebar">
-          <p>More info soon...</p>
-        </div>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/tic-tac-toe" element={<TicTacToe />} />
-            <Route path="/circlemania" element={<Circlemania />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={                                                                                 <Home content={homeInfo}/>  } />
+          <Route path="/tic-tac-toe" element={<>  <Sidebar content={tictactoeInfo}/>    <div className="container"> <TicTacToe />   </div>  </> } />
+          <Route path="/circlemania" element={<>  <Sidebar content={circlemaniaInfo}/>  <div className="container"> <Circlemania /> </div>  </> } />
+        </Routes>
       </main>     
         
       <Footer />
     </>     
   )
 }
+
+const Sidebar = ({ content }) => {
+  return (
+    <div className="sidebar">
+      <h1>info</h1>
+      <p>{content}</p>
+    </div>
+  )
+}
+
+//TODO move elsewhere
+const homeInfo = <>I've enjoyed making a few smaller web projects focusing on React-frontend. Go ahead and have a look!<br></br><br></br>(Work in progress till the end of time)</>
+const tictactoeInfo = <>You can challenge.... YOURSELF! Amazing.<br></br><br></br>Straight from the official React-tutorial. Remember: these are <i>humble</i>-projects, goddamnit</>
+const circlemaniaInfo = <>Click-click-click... Who will win: YOU or a couple of bouncy bois<br></br><br></br>Modified from a MDN-tuorial and fitted to React</>
 
 export default App;

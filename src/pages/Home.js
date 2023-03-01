@@ -1,6 +1,10 @@
-const Home = () => {
+const Home = ({ content }) => {
   return(
-    <h1 id="content">Home</h1>
+    <div className="home-content">    
+      <h1>about</h1>
+      {content}
+    </div>
+    
   )
 }
 

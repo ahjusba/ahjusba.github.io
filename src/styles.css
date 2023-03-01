@@ -62,16 +62,34 @@ main {
 }
 
 .sidebar {
-	flex-basis: 15%;
+	flex-basis: 25%;
 }
 
 .sidebar p {
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
+  padding: 15px 10px 0 15px;
+}
+
+.sidebar h1 {
+  padding: 15px 0 0 15px;
 }
 
 .container {
-	flex-basis: 85%;
+	flex-basis: 75%;
   text-align: center;
+}
+
+.home-content {
+  padding: 25px;
+}
+
+.home-content h1 {
+  font-size: 2rem;
+  padding: 0 25px 25px 0;
+}
+
+.home-content p {
+  font-size: 1rem;
 }
 
 footer {	
