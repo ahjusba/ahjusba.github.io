@@ -6,7 +6,7 @@ const countriesURL = 'https://restcountries.com/v3.1/all'
 const superDuperSecretKey = `${process.env.REACT_APP_WEATHER_API_KEY}` //I know React client side is not safe
 
 const weatherURL = city => {
-  return `http://api.weatherapi.com/v1/current.json?key=${superDuperSecretKey}&q=${city}&aqi=no`
+  return `https://api.weatherapi.com/v1/current.json?key=${superDuperSecretKey}&q=${city}&aqi=no`
 }
 
 const GeoAPI = () => {
