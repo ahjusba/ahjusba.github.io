@@ -6,7 +6,6 @@ const Circlemania = () => {
   const [winTime, setWinTime] = useState(0)
 
   const gameOver = (time) => {
-    console.log("Game won in ", time)
     setWinTime(time)
   }
 
@@ -16,16 +15,25 @@ const Circlemania = () => {
   }
 
   const resetGame = () => {
-    console.log("reset")    
+  }
+
+  
+  let width = window.innerWidth * 1
+  let height = width
+  if(width > 768) {
+    width = 768
+    height = width * (3/4)
+  } else {
+    height = width * (4/3)
   }
 
   return(
-    <div id="content">
+    <div>
       <div className="circlemania">
-        <h1 id="content-title">Circlemania</h1>
+        <p id="content-title">Circlemania</p>
         <div className="game">
-          <Canvas draw={draw} width={800} height={550}/>
           <GameStatus winTime={winTime} />
+          <Canvas draw={draw} width={width - 12} height={height - 12}/>
         </div>
         {/* <Reset handleReset={resetGame} /> */}
       </div>      
@@ -46,7 +54,7 @@ const GameStatus = ({ winTime }) => {
   let message
 
   if(winTime <= 0) {
-    message = <p>Click all the circles blue</p>
+    message = <p>Click all the circles red</p>
   } else {
     message = <h1>You won in {winTime} seconds</h1>
   }
@@ -96,11 +104,12 @@ const runGame = (canvas, context, gameOver) => {
   ]
 
   const blueColors = [
-    "#99DCFE", // original blue color
-    "#77C3F3", // lighter shade of blue
-    "#5CB5E8", // another lighter shade of blue
-    "#2C6792", // dark blue color
-    "#0C2D48", // deeper shade of dark blue
+    "#E25822",      // original red color
+    "#EC6C38",      // lighter variation
+    "#D84E1E",      // darker variation
+    "#E26D35",      // more orangey variation
+    "#DC6130",      // slightly desaturated
+    "#D6451C",      // deeper red variation
   ] 
 
   let circles = [];
@@ -231,7 +240,6 @@ const runGame = (canvas, context, gameOver) => {
     const rect = canvas.getBoundingClientRect()
     const x = event.clientX - rect.left
     const y = event.clientY - rect.top
-    // console.log("x: " + x + " y: " + y)
   
     handleMouseClick(x, y);
   }
@@ -275,7 +283,7 @@ const runGame = (canvas, context, gameOver) => {
 
   function init() {  
     circles = [];
-    console.log("Initializing");
+
     for (let i = 0; i < circleCount; i++) {
       const radius = getRandomRadius();
       const x = getRandomX(radius);

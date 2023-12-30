@@ -1,7 +1,7 @@
 const Footer = () => {
   return(
     <footer>
-      ©ahjusba 2023
+      ©ahjusba 2024
     </footer>
   )
 }

@@ -105,10 +105,10 @@ const Country = ({country}) => {
   return (
   <div className="country">
     <div className="countryInfo">
-      <h1>{country.name.common}</h1> 
+      <p>{country.name.common}</p> 
       <p>Capital: {country.capital}</p>
       <p>Area: {country.area} km2</p>
-      <h2>Languages</h2>
+      <p>Languages:</p>
       <Languages languages={country.languages} />
     </div>
     
@@ -134,14 +134,14 @@ const Weather = ({countries, weather}) => {
 
   return (
     <>
-      <h2>Weather in {country.capital}</h2>
       <div className="weather">
         <div className="weatherInfo">
+          <p>Weather in {country.capital}</p>
           <p>Temperature: {weather.current.temp_c}° C</p>
           <p>Wind: {mps} m/s</p>
         </div>
         <div className="weatherIcon">
-          <img src={weather.current.condition.icon} alt={weather.current.condition.text}></img>
+          <img className="icon" src={weather.current.condition.icon} alt={weather.current.condition.text}></img>
         </div>
       </div>
     </>
@@ -176,7 +176,7 @@ const Language = ({language}) => {
 const Inputfield = ({filter, handleFilterChange}) => {
   return(
     <div className="allInput">
-      <h2>SEARCH COUNTRY BY NAME:</h2>
+      <p>SEARCH COUNTRY:</p>
       <input
         onChange={handleFilterChange}
         value={filter}

@@ -2,8 +2,7 @@ import { useState } from 'react'
 
 const TicTacToe = () => {
   return (
-    <div id="content">
-      <h1 id="content-title">Tic-tac-toe</h1>
+    <div id="content">      
       <Game />
     </div>
 
@@ -30,9 +29,28 @@ const Game = () => {
     setXIsNext(!xIsNext)
   }
 
+  const getStatusMessage = () => {
+
+    const winner = calculateWinner(currentSquares)
+
+    if (winner) {
+      return `Winner is ${winner}`
+    }
+
+    if (boardIsFilled(currentSquares)) {
+      return `Tie`
+    }
+
+    return `player = ${xIsNext ? "X" : "O" }` 
+  }
+
   return (
     <div>
       <div className="board">
+        <h2 id="content-title">Tic-tac-toe</h2>
+        <div className="status">
+          <Status status={getStatusMessage()}/>
+        </div>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
         <Undo onUndoClick={handleUndo} render={(history.length > 1)} />
       </div>
@@ -43,14 +61,13 @@ const Game = () => {
 }
 
 const Undo = ({onUndoClick, render}) => {
-  console.log("Render: ", render)
   if(render) {
     return (
       <button className="undo" onClick={onUndoClick}>undo</button>
     )
   } else {
     return (
-      <></>
+        <p></p>
     )
   }
 }
@@ -72,26 +89,23 @@ const Board = ({ xIsNext, squares, onPlay }) => {
     onPlay(updatedSquares)
   }
 
-  const getStatusMessage = () => {
+  // const getStatusMessage = () => {
 
-    const winner = calculateWinner(squares)
+  //   const winner = calculateWinner(squares)
 
-    if (winner) {
-      return `Winner is ${winner}`
-    }
+  //   if (winner) {
+  //     return `Winner is ${winner}`
+  //   }
 
-    if (boardIsFilled(squares)) {
-      return `Tie`
-    }
+  //   if (boardIsFilled(squares)) {
+  //     return `Tie`
+  //   }
 
-    return `player = ${xIsNext ? "X" : "O" }` 
-  }
+  //   return `player = ${xIsNext ? "X" : "O" }` 
+  // }
 
   return (
-    <>
-      <div className="status">
-        <Status status={getStatusMessage()}/>
-      </div>
+    <>      
       <div className="board-row">
         <Square onSquareClick={() => handleClick(0)} value={squares[0]} />
         <Square onSquareClick={() => handleClick(1)} value={squares[1]} />
@@ -114,9 +128,9 @@ const Board = ({ xIsNext, squares, onPlay }) => {
 const Status = ({ status }) => {
   return(
     <>
-      <h1>
+      <h2>
         {status}
-      </h1>
+      </h2>
     </>
   )
 }

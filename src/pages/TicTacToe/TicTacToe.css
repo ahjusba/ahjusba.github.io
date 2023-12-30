@@ -1,8 +1,8 @@
 button.square {
-  background-color: rgb(64, 64, 64);
+  background-color: rgb(255, 223, 191);
   border: 3px solid;
   vertical-align: top;
-  border-color: #ffd700;
+  border-color: rgb(255, 223, 191);
   border-radius: 3px;
   font-size: 2rem;
   padding: 0;
@@ -14,7 +14,11 @@ button.square {
 }
 
 .board {
-  padding: 25px;
+  padding: 25px 0 0 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .board-row {
@@ -24,33 +28,34 @@ button.square {
 }
 
 .square {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .status {
-  padding: 15px;
+
 }
 
 button.square:hover {
-  background-color: grey;
+  background-color: rgb(239, 188, 136);
 }
 
 button.undo {
-  height: 2rem;
-  width: 5rem;
+  height: 3rem;
+  width: 6rem;
 }
 
 .undo {
-  font: inherit;
-  font-size: 1rem;
+  border-radius: 5px;
+  /* font: inherit; */
+  font-size: 2rem;
   margin: 1rem 0 1rem 0;
-  background-color: #3d3d3d;
-  color: #569cd6;
+  background-color: rgb(255, 223, 191);
+  color: #000000;
   border: 2px solid;
-  border-color: #569cd6;
+  border-color: #560c0c;
 }
 
 .undo:hover {
-  background-color: #569cd6;
-  color: #573b54;
+  background-color: rgb(255, 196, 138);
+  color: #eef8d8;
 }

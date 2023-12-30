@@ -12,37 +12,33 @@ const App = () => {
     <>
       <Navbar />
 
-      <main>
+      <div className={"main-content"}>
         <Routes>
-          <Route path="/" element={                                                                                 <Home content={homeInfo}/>  } />
-          <Route path="/circlemania" element={<>  <Sidebar content={circlemaniaInfo}/>  <div className="container"> <Circlemania /> </div>  </> } />
-          <Route path="/geoAPI"      element={<>  <Sidebar content={geoApiInfo}/>  <div className="container"> <GeoAPI />      </div>       </> } />
-          <Route path="/tic-tac-toe" element={<>  <Sidebar content={tictactoeInfo}/>    <div className="container"> <TicTacToe />   </div>  </> } />
+          <Route path="/" element={<Home content={homeInfo}/>  } />
+          <Route path="/circlemania" element={<><Info content={circlemaniaInfo}/><div> <Circlemania/></div></>}/>
+          <Route path="/geoAPI" element={<><Info content={geoApiInfo}/><div><GeoAPI/></div></>}/>
+          <Route path="/tic-tac-toe" element={<><Info content={tictactoeInfo}/><div> <TicTacToe /></div></>}/>
         </Routes>
-      </main>     
+      </div>
+      
         
       <Footer />
     </>     
   )
 }
 
-const Sidebar = ({ content }) => {
+const Info = ({ content }) => {
   return (
-    <div className="sidebar">
-      <h1>info</h1>
+    <div className="info">
       <p>{content}</p>
     </div>
   )
 }
 
 //TODO move elsewhere
-const homeInfo = <>As a programmer, I couldn't resist the temptation to create a website with a code editor theme. 
-I mean, how original is that? But, putting that aside, 
-I've had a blast crafting a few smaller web projects that rely on React frontend. 
-Feel free to take a peek and see what I've been up to. 
-And, just a heads up, this site will forever be a work in progress, until the end of time.</>
-const circlemaniaInfo = <>Click-click-click... Who will win: YOU or a couple of bouncy bois<br></br><br></br>Modified from a MDN-tuorial and fitted to React</>
-const geoApiInfo = <>While I haven't traveled overseas since late 2019, I must confess that I wouldn't mind having this incredibly awesome geography app over visiting some mediocre beaches and congested cities.</>
-const tictactoeInfo = <>You can challenge.... YOURSELF! Amazing.<br></br><br></br>Straight from the official React-tutorial. Remember: these are <i>humble</i>-projects, goddamnit</>
+const homeInfo = <p>Humble web-projects. I rarely add new projects and I hate <p className="css">CSS.</p></p>
+const circlemaniaInfo = <p>Infuriating! Annoying! Mindless! A marvel of Game Design!</p>
+const geoApiInfo = <p>Fetch and render data from a geographical API. Try it out!</p>
+const tictactoeInfo = <p>More practice with undo button and keeping track of previous states.</p>
 
 export default App;
