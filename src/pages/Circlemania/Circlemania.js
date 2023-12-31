@@ -226,7 +226,7 @@ const runGame = (canvas, context, gameOver) => {
   }
   
   function getRandomVelocity() {
-    return (Math.random() - 0.5) * 7;
+    return (Math.random() - 0.5) * 5;
   }
   
   function rotate(dx, dy, angle) {
