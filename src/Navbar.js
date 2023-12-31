@@ -10,6 +10,7 @@ const Navbar = () => {
         <CustomLink to="/circlemania">circlemania</CustomLink>
         <CustomLink to="/geoAPI">geoAPI</CustomLink>
         <CustomLink to="/tic-tac-toe">tic-tac-toe</CustomLink>
+        <CustomLink to="/poker-calc">Poker Calc</CustomLink>
       </Menu>
     </div>
     

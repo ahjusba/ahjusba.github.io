@@ -43,14 +43,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: rgb(114, 41, 41);
+  background: rgb(129, 89, 68);
   padding: 25px 0px 0 70px;
   /* font-size: 1.15em; */
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: rgb(114, 41, 41);
+  fill: rgb(129, 89, 68);
 }
 
 /* Wrapper for item list */
