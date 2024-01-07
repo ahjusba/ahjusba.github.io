@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
+import ClipboardJS from 'clipboard';
+import clipboardImage from '../../images/clipboard.png';
 
 const PokerCalc = () => {
   
   const [history, setHistory] = useState([])
   const [players, setPlayers] = useState([])
+  const [payoutStrings, setPayoutStrings] = useState([])
 
   useEffect(() => {
     // Load players and history from local storage when the component mounts
@@ -55,6 +58,7 @@ const PokerCalc = () => {
     if(userConfirmed) {
       setPlayers([])
       setHistory([])
+      setPayoutStrings([])
     }    
   }
 
@@ -65,8 +69,8 @@ const PokerCalc = () => {
     if (!isNaN(buyinAmount)) {
       const updatedPlayer = {
         ...player,
-        buyins: [...player.buyins, buyinAmount],
-        net: player.net + buyinAmount,
+        buyins: [...player.buyins, Number(buyinAmount.toFixed(2))],
+        net: player.net - Number(buyinAmount.toFixed(2)),
       };
       const playerIndex = players.findIndex((p) => p.id === player.id);
 
@@ -80,16 +84,66 @@ const PokerCalc = () => {
   }
 
   const handlePayout = () => {    
-    const totalNetAmount = players.reduce((acc, player) => acc + player.net, 0)
+    const totalNetAmount = Number(players.reduce((acc, player) => acc + player.net, 0).toFixed(2))
 
+    let mysteryMoney = {net: 0}
     if(totalNetAmount !== 0) {
       alert(`The Net Sum (Buy-ins + Buy-outs) is not zero but instead ${totalNetAmount} €. Have you marked all the buy-outs as negative? Each player still having chips should be bought out with a negative sum corresponding to the chips.`)
-      const mysterMoney = {
-        name: "MysteryMoney",
+      mysteryMoney = {
+        name: "GHOST",
         id: "MysteryMoney",
-        netAmount: -1 * totalNetAmount,
+        net: -1 * totalNetAmount,
       }
     }
+
+    const winners = players.filter(player => player.net > 0).sort((a, b) => b.net - a.net).map(player => ({ ...player }));
+    const losers = players.filter(player => player.net < 0).sort((a, b) => a.net - b.net).map(player => ({ ...player }));
+
+    if(mysteryMoney.net < 0) {
+      losers.push(mysteryMoney)
+    } else {
+      winners.push(mysteryMoney)
+    }
+
+    let payoutStrings = [];
+
+    for (const loser of losers) {
+      let remainingDebt = Math.abs(loser.net);
+
+      for (const winner of winners) {
+        if (remainingDebt > 0 && winner.net > 0) {
+          const amountToPay = Math.min(remainingDebt, winner.net);
+          winner.net -= amountToPay;
+          remainingDebt -= amountToPay;
+
+          const newPayoutString = `${loser.name} ${Number(amountToPay.toFixed(2))}€ → ${winner.name}`;
+          payoutStrings.push(newPayoutString)
+        }
+      }
+    }
+
+    setPayoutStrings(payoutStrings)
+  }
+
+  const handleCopyToClipboard = () => {
+    let textToCopy = ""
+    for(const payout of payoutStrings) {
+      textToCopy += `${payout}\n`
+    }
+
+    const clipboard = new ClipboardJS('.copy-button', {
+      text: () => textToCopy,
+    });
+
+    clipboard.on('success', () => {
+      alert('Copied to clipboard: ' + textToCopy)
+      clipboard.destroy()
+    });
+
+    clipboard.on('error', () => {
+      alert('Failed to copy to clipboard')
+      clipboard.destroy()
+    })  
   }
 
   return(
@@ -100,7 +154,10 @@ const PokerCalc = () => {
             <Player key={player.id} player={player} handleAddBuyin={handleAddBuyin} />
             ))}
         </ul>
-      </div>      
+      </div>  
+      <div className={"payout"}>
+        {payoutStrings.length > 0 && <Payout payoutStrings={payoutStrings} handleCopyToClipboard={handleCopyToClipboard}/>}
+      </div>    
       <div className={"buttons"}>
         <button className={"bigbutton"} onClick={handleReset}>Reset</button>
         <button className={"bigbutton"} onClick={handlePayout}>Payout</button>
@@ -111,12 +168,33 @@ const PokerCalc = () => {
   )
 }
 
+const Payout = ({ payoutStrings, handleCopyToClipboard }) => {
+  return(
+    <div>
+      <div className={"payoutHeader"}>
+        <p>Payout</p>
+        <button src={clipboardImage} className={"copy-button"} onClick={handleCopyToClipboard}>
+          <img src={clipboardImage} alt="Clipboard" />
+        </button>
+      </div>
+      <ul>
+        {payoutStrings.map((payoutString, index) => (
+          <li key={index}>{payoutString}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 const Player = ({ player, handleAddBuyin }) => {
   return (
     <div className={"player"}>
       <div className={"playerData"}>
           <li className={"playerName"}>
-            {player.name} {player.net >= 0 ? `(+${player.net})` : `(${player.net})`}
+          {player.name}{' '}
+          <span className={"playerNet"}>
+            {player.net >= 0 ? `(+${Number(player.net.toFixed(2))})` : `(${Number(player.net.toFixed(2))})`}
+          </span>
           </li>     
         <div className={"buyins"}>
           {player.buyins.map((buyin) => (

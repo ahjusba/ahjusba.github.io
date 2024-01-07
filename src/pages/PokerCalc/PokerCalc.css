@@ -3,7 +3,7 @@
   display: flex;
   justify-content:space-between;
   flex-direction: column;
-  height: 90vh;
+  height: 85vh;
   /* justify-content: space-between; */
   @media (min-width: 768px) {
   }
@@ -13,11 +13,19 @@
   flex-direction: column;
 }
 
+.payout {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.payout li {
+  font-size: 1.4rem;
+}
+
 .bigbutton {
-  width: 100px;
-  height: 75px;
-  margin: 12px 6px;
-  font-size: 1.5rem;
+  width: 75px;
+  height: 50px;
+  margin: 12px 6px 6px 0px;
+  font-size: 1rem;
   border-radius: 5px;
 }
 
@@ -25,8 +33,9 @@
   align-content: flex-start;
   align-items: flex-start;
   width: 50px;
-  height: 50px;
-  border-radius: 15px;
+  height: 40px;
+  border-radius: 3px;
+  align-self: center;
 }
 
 .player {
@@ -36,6 +45,9 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 10px;
+  @media (min-width: 768px) {
+    width: 50vw;
+  }
 }
 
 .playerName {
@@ -53,6 +65,13 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  @media (min-width: 768px) {
+    width: 50vw;
+  }
+}
+
+.playerNet {
+  font-size: 1rem;
 }
 
 .buyins {
@@ -80,6 +99,30 @@
   width: 50vw;
 }
 
-.netamount {
+.payout {
+  @media (min-width: 768px) {
+    width: 50vw;
+  }
+}
 
+.payout li {
+  /* padding-top: 15px 0 5px 15px; */
+}
+
+.payout ul {
+  margin: 15px 0;
+}
+
+.payoutHeader {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.copy-button {
+  width: 40px;
+  height: 40px;
+  align-self: center;
 }
